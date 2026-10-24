@@ -1,0 +1,34 @@
+# JMGO G3 Pro projector (JmGO_G3pro, Android 4.4.2 / SDK 19, Softwinner 板)
+# 方案：标准精简 —— 只禁广告/追踪/预装推送类组件
+#
+# 实际生效命令（2026-10-25 实测执行）：adb shell pm block <包名>
+# 注意：本机内存小，pm disable-user 会被系统 OOM 杀死 (RC=137)，必须用 pm block。
+#       pm block 是 Android 4.4 时代的标准命令，效果等同 disable：禁止运行、
+#       从桌面隐藏，可随时 pm unblock 恢复，无需 Root。
+#
+# 恢复命令：adb shell pm unblock <包名>
+# 例：adb shell pm unblock com.jmgo.preinstallmanager
+#
+# 已确认保留（勿动）：com.softwinner.update(OTA)、com.softwinner.tvremoteserver(遥控服务)、
+#   com.jmgo.systemapi、com.jianguo.server、com.shafa.market(沙发管家，用户自装)、
+#   com.wukongtv.wkhelper.remoteplugin2(悟空遥控，用户自装)
+# 应用清单备份见 backup/ 目录
+#
+# ============ 已禁用列表（4 个）============
+
+com.jmgo.preinstallmanager       # 预装推送管理器：静默下载安装、推送权限，广告App主要来源
+com.google.tv.discovery          # "发现"内容推荐
+com.jmgo.qy.player               # 爱奇艺定制版影视应用
+com.jmgo.illustration            # 开机引导插图/推广素材
+
+# ============ 特殊说明 ============
+
+# com.xiaodianshi.tv.yst —— 这不是"影视快搜"，是B站正版TV应用"云视听小电视"，
+# 建议保留！如已禁用：adb shell pm unblock com.xiaodianshi.tv.yst
+
+# ============ 可选：替换桌面 ============
+# 坚果桌面内含推荐位/广告位。可安装当贝桌面(支持Android 4.x)后停用坚果桌面：
+#   adb shell pm block com.jmgo.launcher
+# 恢复坚果桌面：
+#   adb shell pm unblock com.jmgo.launcher
+# 本机另有系统兜底桌面 /system/priv-app/Launcher2.apk (com.android.launcher)，未动。

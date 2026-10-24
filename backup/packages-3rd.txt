@@ -1,0 +1,4 @@
+package:/data/app/com.shafa.market-2.apk=com.shafa.market
+package:/data/app/com.jmgo.browser-1.apk=com.jmgo.browser
+package:/data/app/com.xiaodianshi.tv.yst-1.apk=com.xiaodianshi.tv.yst
+package:/data/app/com.wukongtv.wkhelper.remoteplugin2-1.apk=com.wukongtv.wkhelper.remoteplugin2
